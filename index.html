@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Journal</title>
+    <link rel="stylesheet" href="MainJournal.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Merienda:wght@300..900&family=Playwrite+AU+QLD:wght@100..400&display=swap"
+        rel="stylesheet">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=umYKfn5Ambnra0TWJxircy6PAIqcC5inxGfQaIatD905fcjS-I4xycbcrWYV45-bSw_FGyPbX1-Z-ItHMYHLx4bcp5yj-17GgyWQdbhDr2oLFPEhf76TetLZXdqEWxy1cfYPjbeXxoWTlas7F-36d0sY-s3kHxYAWaNdJQi8MDplj5Bm--ccI2jMRcFTaxUUBQ9w5f81ZTcP-I-IsaJCni7smumTyTG6UGazf-fg2AnzlooSbW2ZacNc5bv7QFAk0kyMpQoV405VHMr1CZhB2WTKxjaNFSUez5YN2zBaygXhR9GnqZvAoqqhWeqolMsP4geq12xUkDU3bPzmbDjTXjZtav6U7W6X3D_K9GXMvraOzVQif6f4Qj_T-al0GObM1LJa51V3D8WJPP2utjSYgStxgjHzcHRuzFbF_Turv2neMxO6FEfAT8dgRbAzAwZVGJ4jBzrfaI4RdCw3dGTvl7ZoL6SfF6YgMJs9zAQSJ7EF2r3NOeM0v1p_lIaCqJfhrQlDxSWsU2YwuJ1w5Fgu-osoRHKTCO95xkmPi6CXI5zzsb4Y1ghtsTwRwpOkOQVj7zV3w2eNWU2yBAdZm6J-htJ9rQNjQBYPKZLuLgylh2FaOBI_i3ZtE2WKX7IBthWModHnCl73FG-dipi9SmfxS20I6y0MBWYmHuHsATjDqSMI6fWJR4BqJy1P7hwASq7pEjuKM91yIguokAgCqXbHI3S4RamCQd7SZJTePTQXU--08cewQgg-hoPEoywKPeGqlJ9Fy6dpNx90yMj6OyoJismNHB6Y4PvsMh45U06spkdxdy1lmIcA_95vHXdfQY7eaNb0_uPXwn7wRz7O8p8RiwEc2H-hP1BHJzKGobNjLYkflTcUKZSrhI8b1TJGieQZymnkijBO2gQrWrZQsY5h3dU3fhSlDeMyHEUUzgs4SMV76_ikvE_FIU3ZpON1Fs8eWR9iqQwEOIZFAIavJJ8mN5nCyIkesw2gbE_SNgm5AapQGL-2BACpWFZhh2onuZfJApT9SUYa59U63wey7b18uVCkkEoGAxgfm5cf4jA-tUr1_qSozqX2Vv8BIQGZ_DEzLCYAtGOcJNOAMMdxcV2nL_P7WWUUBEH6Bz0sBze_cjCOhYXsKPheYcotyvFuJqRoopFUmYc0oehrThkqpwYOqAtQU1mB_x9kYCsAolElDNjHAcKDu-F6v2DgJvzqwsCLSJRkk1Mf7RxQfeODzFNsjZmG1KNKQcTpmUd-z00nOu9jQr9dOw5lnZ9KVam5w9aZY8Md4E0WNOw3ei0_EAMTV_X6679VHMR_qQ3hq3dg2Bg1HzCZpR1LT6UN3V3TKIgi2wqrMoXSQ4fkgZc3Oem_iDTxDFihf2ztwIMJEXI-F1t5mu2XrHf-1KJlmNyFONGzDOcWJQIPYNuOMoeh7vnsA2y7Spf3iFYQFmmX3VH3kbsBDrJpzWRwuXCJyBFqp692E3IPL2gvfOZu2hQ89AOabM59HQdy1cmHX-gKG0TJriXmqJKcGDjbP7dz4-PGmabUY1kL3nXP7rQzhPUCyEnXUq-z157-2xByaici3YJG72zTUcyPedbMpI7uaPwvG1nD0rMh3ZAiF18piS_sca5YLsPNvsUK4RieWlKCDg1ZglSuwnYbkZVCJrL7F-ryHg5qs86TczB0XSHtADiPfGAV3w" nonce="5e7c802a57a3dc2d81bdcfddff91c42c" charset="UTF-8"></script></head>
+
+<body>
+    <header>
+        <h1>My Daily Journal</h1>
+        <nav>
+            <a href="#new-entry">New Entry</a>
+            <a href="#archive">Archive</a>
+            <a href="#stats">Stats</a>
+            <a href="#MoodTracker">Mood Tracker</a>
+        </nav>
+        <label class="theme-toggle">
+            <input type="checkbox" id="theme-switch">
+            <span class="slider"></span>
+        </label>
+    </header>
+
+    <main>
+        <!-- New Entry Section -->
+        <section id="new-entry" class="entry-form">
+            <h2>Today's Entry</h2>
+            <form>
+                <label for="entry-date">Date:</label>
+                <input type="date" id="entry-date" name="entry-date" required>
+
+                <label for="mood">Mood:</label>
+                <select id="mood" name="mood">
+                    <option value="happy">😊 Happy</option>
+                    <option value="neutral">😐 Neutral</option>
+                    <option value="sad">😢 Sad</option>
+                    <option value="excited">🤩 Excited</option>
+                    <option value="Very Sad">😭-Very Sad</option>
+                </select>
+
+                <label for="content">Journal Entry:</label>
+                <textarea id="content" name="content" placeholder="Write your thoughts here..." rows="8"></textarea>
+
+                <button type="submit">Save Entry</button>
+            </form>
+        </section>
+
+        <div class="inkblot-divider"></div>
+
+        <!-- Archive Section -->
+        <section id="archive" class="archive">
+            <h2>Archive</h2>
+
+            <article class="journal-entry featured" data-mood="happy">
+                <h3>2025-08-10</h3>
+                <p>Had a wonderful day walking in the park and reading a book.</p>
+            </article>
+
+            <article class="journal-entry" data-mood="sad">
+                <h3>2025-08-09</h3>
+                <p>It rained all day, and I felt a little down.</p>
+                <!-- Nested Flexbox Comments -->
+                <div class="comments">
+                    <div class="comment">
+                        <strong>Alice:</strong> Hope tomorrow feels brighter!
+                        <div class="replies">
+                            <div class="comment">
+                                <strong>Me:</strong> Thank you ❤️
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="journal-entry locked" data-mood="neutral">
+                <h3>2025-08-05</h3>
+                <p class="locked-msg">🔒 This entry is password protected</p>
+                <input type="password" placeholder="Enter password to view" disabled>
+            </article>
+
+            <article class="journal-entry" data-mood="excited">
+                <h3>2025-08-08</h3>
+                <p>Finally got tickets to my favorite band’s concert!</p>
+            </article>
+
+            <article class="journal-entry" data-mood="happy">
+                <h3>2025-08-07</h3>
+                <p>Spent the evening baking cookies with friends.</p>
+            </article>
+
+            <article class="journal-entry" data-mood="very sad">
+                <h3>2025-08-04</h3>
+                <p>Missed talking to a close friend today, feeling a bit lonely and couldn't complete the class work and
+                    felt so guilty.</p>
+            </article>
+
+            <article class="journal-entry" data-mood="excited">
+                <h3>2025-08-03</h3>
+                <p>Started learning to play the guitar, can’t wait to get better!</p>
+            </article>
+
+            <article class="journal-entry" data-mood="happy">
+                <h3>2025-08-02</h3>
+                <p>Had a picnic at the beach, the sunset was breathtaking.</p>
+            </article>
+
+            <article class="journal-entry" data-mood="neutral">
+                <h3>2025-07-30</h3>
+                <p>It was a quite normal day. No mood swing no surprising moments. </p>
+            </article>
+
+        </section>
+
+        <div class="inkblot-divider"></div>
+
+        <!-- Stats Section -->
+        <section id="stats">
+            <h2>Stats</h2>
+            <p>Total Entries: 8</p>
+            <p>Current Streak: 3 days</p>
+        </section>
+
+        <div class="inkblot-divider"></div>
+
+        <!-- Mood Tracker -->
+        <section id="MoodTracker">
+            <h2>Mood Tracker</h2>
+            <div class="bar-chart">
+                <div class="bar" style="height: 38%;" title="Happy"></div>
+                <div class="bar" style="height: 12%;" title="Neutral"></div>
+                <div class="bar" style="height: 12%;" title="Sad"></div>
+                <div class="bar" style="height: 25%;" title="Excited"></div>
+                <div class="bar" style="height: 12%;" title="Very Sad"></div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

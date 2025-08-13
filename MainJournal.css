@@ -1,0 +1,376 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Merienda", cursive;
+    background: url(oldpaper.jpg);
+    background-size: cover;
+    color: #333;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 4rem;
+}
+
+nav{
+    margin-top: 50px;
+}
+
+nav a {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: 0.2s ease;
+}
+
+nav a:hover {
+    background: #f7e9b5;
+}
+
+.entry-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.entry-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.entry-form label {
+    margin-top: 10px;
+}
+
+.entry-form textarea {
+    resize: vertical;
+    padding: 10px;
+}
+
+.entry-form button {
+    margin-top: 15px;
+    padding: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.journal-entry[data-mood="happy"] {
+    border-left: 5px solid #3bc146;
+}
+
+.journal-entry[data-mood="sad"] {
+    border-left: 5px solid #df3434;
+}
+
+.journal-entry[data-mood="neutral"] {
+    border-left: 5px solid #1bcded;
+}
+
+.journal-entry[data-mood="excited"] {
+    border-left: 5px solid #fbf301;
+}
+
+.journal-entry[data-mood="very sad"] {
+    border-left: 5px solid #000000;
+}
+
+.archive {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.journal-entry {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+#stats {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    height: 300px;
+}
+
+.bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 150px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+}
+
+.bar {
+    flex: 1;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    transition: height 0.3s ease, background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    color: inherit;
+}
+
+.bar::before {
+    content: attr(title);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #333;
+    margin-top: 4px;
+}
+
+.bar::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 12px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+}
+
+.bar:hover::after {
+    opacity: 1;
+}
+
+.bar:hover {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.4), currentColor);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px currentColor;
+}
+
+.bar[title="Happy"] {
+    background-color: #3bc146;
+    color: #3bc146;
+}
+
+.bar[title="Excited"] {
+    background-color: #fbf301;
+    color: #fbf301;
+}
+
+.bar[title="Neutral"] {
+    background-color: #1bcded;
+    color: #1bcded;
+}
+
+.bar[title="Sad"] {
+    background-color: #df3434;
+    color: #df3434;
+}
+
+.bar[title="Very Sad"] {
+    background-color: #000000;
+    color: #000000;
+}
+
+@media (min-width: 768px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .entry-form,
+    .archive,
+    #stats,
+    .mood-tracker {
+        flex: 1;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    main {
+        flex-direction: column;
+    }
+
+    #stats {
+        height: 200px;
+        padding: 10px;
+        order: 1;
+    }
+
+    .mood-tracker {
+        order: 2;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Toggle button styles */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.theme-toggle input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 21px;
+    width: 21px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.theme-toggle input:checked+.slider {
+    background-color: #333;
+}
+
+.theme-toggle input:checked+.slider::before {
+    transform: translateX(25px);
+}
+body:has(#theme-switch:checked) {
+    background: #121212;
+    color: #f0f0f0;
+}
+
+body:has(#theme-switch:checked) .entry-form,
+body:has(#theme-switch:checked) .journal-entry,
+body:has(#theme-switch:checked) #stats,
+body:has(#theme-switch:checked) .bar-chart {
+    background: rgba(40, 40, 40, 0.9);
+    color: #f0f0f0;
+}
+
+body:has(#theme-switch:checked) nav a {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.featured {
+    -webkit-column-span: all;
+    column-span: all;
+    background: rgba(255, 255, 200, 0.9);
+    font-weight: bold;
+}
+
+/* Nested flexbox comments */
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+    padding-left: 15px;
+    border-left: 2px solid #ccc;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    background: rgba(240, 240, 240, 0.8);
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.replies {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 5px;
+    padding-left: 15px;
+    border-left: 1px dashed #aaa;
+}
+
+/* Locked entries */
+.locked {
+    opacity: 0.7;
+}
+
+.locked-msg {
+    font-style: italic;
+    color: #666;
+}
+
+/* Inkblot divider */
+.inkblot-divider {
+    width: 100%;
+    height: 50px;
+    background: url('inkblot.svg') no-repeat center;
+    background-size: contain;
+    margin: 20px 0;
+}
+
+/* Print styles */
+@media print {
+
+    nav,
+    .theme-toggle,
+    .inkblot-divider,
+    #MoodTracker,
+    #stats {
+        display: none !important;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    .journal-entry {
+        border: 1px solid #000;
+        margin-bottom: 10px;
+        page-break-inside: avoid;
+    }
+}
